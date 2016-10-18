@@ -1,0 +1,23 @@
+{
+  "intents": [
+    {
+      "intent": "TextMessageIntent",
+      "slots": [
+        {
+          "name": "PhoneNumber",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Message",
+          "type": "LIST_OF_POSSIBLE_MESSAGES"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
