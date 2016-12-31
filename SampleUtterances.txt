@@ -6,8 +6,6 @@ TextMessageIntent send a text to {PhoneNumber} saying {Message}
 TextMessageIntent send a message to {PhoneNumber} saying {Message}
 TextMessageIntent send a text message to {PhoneNumber} saying {Message}
 
-
-
 TextMessageIntent to send a text to {PhoneNumber} that {Message}
 TextMessageIntent to send a message to {PhoneNumber} that {Message}
 TextMessageIntent to send a text message to {PhoneNumber} that {Message}

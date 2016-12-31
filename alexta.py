@@ -1,5 +1,5 @@
 from __future__ import print_function
-from twilio.rest import TwilioRestClient 
+from twilio.rest import TwilioRestClient
 
 # --------------- Main handler ------------------
 
@@ -34,7 +34,6 @@ def lambda_handler(event, context):
 
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
-
     print("on_session_started requestId=" + session_started_request['requestId']
           + ", sessionId=" + session['sessionId'])
 
@@ -46,7 +45,7 @@ def on_launch(launch_request, session):
     print("on_launch requestId=" + launch_request['requestId'] +
           ", sessionId=" + session['sessionId'])
 
-    # Dispatch to your skill's launch
+    # Dispatch to skill's launch
     return get_welcome_response()
 
 
@@ -59,7 +58,7 @@ def on_intent(intent_request, session):
     intent = intent_request['intent']
     intent_name = intent_request['intent']['name']
 
-    # Dispatch to your skill's intent handlers
+    # Dispatch to skill's intent handlers
     if intent_name == "TextMessageIntent":
         return set_message_in_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
@@ -74,12 +73,11 @@ def on_session_ended(session_ended_request, session):
     """ Called when the user ends the session.
     Is not called when the skill returns should_end_session=true
     """
-
     print("on_session_ended requestId=" + session_ended_request['requestId'] +
           ", sessionId=" + session['sessionId'])
-    # add cleanup logic here
 
-# --------------- Helpers that build all of the responses ----------------------
+
+# --------------- Helpers that build all of the responses ----------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
@@ -109,8 +107,7 @@ def build_response(session_attributes, speechlet_response):
         'response': speechlet_response
     }
 
-
-# --------------- Functions that control the skill's behavior ------------------
+# --------------- Functions that control the skill's behavior ------------
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
@@ -135,7 +132,7 @@ def handle_session_end_request():
     card_title = "Text Messaging Session Ended"
     speech_output = "Thank you for using the text message app. " \
                     "Have a nice day! "
-    
+
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
@@ -158,9 +155,9 @@ def set_message_in_session(intent, session):
         message = intent['slots']['Message']['value']
         phone_number = intent['slots']['PhoneNumber']['value']
         session_attributes = create_message_attributes(message)
-        send_and_display_message(intent); # send the intended message
-        speech_output = "Sent " + message + " to " + phone_number
-        reprompt_text = "Sent " + message + " to " + phone_number
+        send_and_display_message(intent)  # send the intended message
+        speech_output = "Sent '" + message + "' to " + phone_number
+        reprompt_text = "Sent '" + message + "' to " + phone_number
     else:
         speech_output = "I was not able to send your message. " \
                         "Please try again."
@@ -181,11 +178,11 @@ def send_and_display_message(intent):
 
         # call the method to send text
         if(sendText(phone_number, text_message)):
-            speech_output = "Message sent." # if it found the correct phone number
-        else: # otherwise
+            speech_output = "Message sent."  # if it found the correct phone number
+        else:  # otherwise
             speech_output = "Could not sent the message. Please try again."
     except Exception:
-            speech_output = "I did not understand the message. Please try again."
+        speech_output = "I did not understand the message. Please try again."
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
     # the user. If the user does not respond or says something that is not
@@ -193,18 +190,19 @@ def send_and_display_message(intent):
     return build_response(None, build_speechlet_response(
         card_title, speech_output, None, False))
 
+
 def sendText(to_number, msg):
-    # put your own credentials here, 
+    # put your own credentials here,
     ACCOUNT_SID = "AC4dce8203c02091a26424866295da8211"
-    AUTH_TOKEN = "a1fa7d1b496046ba9a796109de7776a3" 
+    AUTH_TOKEN = "a1fa7d1b496046ba9a796109de7776a3"
     TWILIO_NUMBER = "+19177468658"
 
     try:
         client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
         client.messages.create(
-            to = to_number, 
-            from_= TWILIO_NUMBER, 
-            body = msg,
+            to=to_number,
+            from_=TWILIO_NUMBER,
+            body=msg,
         )
         return True
     except Exception as error:
