@@ -1,0 +1,7 @@
+./httplib2/*
+./pytz/*
+./pytz-2016.7.dist-info/*
+./six-1.10.0.dist-info/*
+./tests/*
+./twilio/*
+./twilio-5.6.0.dist-info/*
