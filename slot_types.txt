@@ -1,0 +1,16 @@
+LIST_OF_POSSIBLE_MESSAGES:
+
+Hey, how are you doing?
+Thanks for the confirmation, I will send you an update about the event as soon as possible.
+Great! Thanks for the update.
+Is there a another time to get back to you on this matter?
+One
+Two
+Three
+Four
+Five
+Six
+Seven
+Eight
+Nine
+Ten

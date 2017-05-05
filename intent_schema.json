@@ -1,23 +1,122 @@
 {
   "intents": [
     {
-      "intent": "TextMessageIntent",
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "TextMessageIntent",
+      "samples": [
+        "send a text to {PhoneNumber} that {Message}",
+        "send a message to {PhoneNumber} that {Message}",
+        "send a text message to {PhoneNumber} that {Message}",
+        "send a text to {PhoneNumber} saying {Message}",
+        "send a message to {PhoneNumber} saying {Message}",
+        "send a text message to {PhoneNumber} saying {Message}",
+        "to send a text to {PhoneNumber} that {Message}",
+        "to send a message to {PhoneNumber} that {Message}",
+        "to send a text message to {PhoneNumber} that {Message}",
+        "to send a text to {PhoneNumber} saying {Message}",
+        "to send a message to {PhoneNumber} saying {Message}",
+        "to send a text message to {PhoneNumber} saying {Message}"
+      ],
       "slots": [
         {
           "name": "PhoneNumber",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "Message",
-          "type": "LIST_OF_POSSIBLE_MESSAGES"
+          "type": "LIST_OF_POSSIBLE_MESSAGES",
+          "samples": []
         }
       ]
-    },
+    }
+  ],
+  "types": [
     {
-      "intent": "AMAZON.HelpIntent"
-    },
-    {
-      "intent": "AMAZON.CancelIntent"
+      "name": "LIST_OF_POSSIBLE_MESSAGES",
+      "values": [
+        {
+          "name": {
+            "value": "Hey, how are you doing?"
+          }
+        },
+        {
+          "name": {
+            "value": "Thanks for the confirmation, I will send you an update about the event as soon as possible."
+          }
+        },
+        {
+          "name": {
+            "value": "Great! Thanks for the update."
+          }
+        },
+        {
+          "name": {
+            "value": "Is there an another time to get back to you on this matter?"
+          }
+        },
+        {
+          "name": {
+            "value": "One"
+          }
+        },
+        {
+          "name": {
+            "value": "Two"
+          }
+        },
+        {
+          "name": {
+            "value": "Three"
+          }
+        },
+        {
+          "name": {
+            "value": "Four"
+          }
+        },
+        {
+          "name": {
+            "value": "Five"
+          }
+        },
+        {
+          "name": {
+            "value": "Six"
+          }
+        },
+        {
+          "name": {
+            "value": "Seven"
+          }
+        },
+        {
+          "name": {
+            "value": "Eight"
+          }
+        },
+        {
+          "name": {
+            "value": "Nine"
+          }
+        },
+        {
+          "name": {
+            "value": "Ten"
+          }
+        }
+      ]
     }
   ]
 }
