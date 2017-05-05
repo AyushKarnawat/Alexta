@@ -1,1 +1,0 @@
-LIST_OF_POSSIBLE_MESSAGES: These words here will allow you send/say more than one word into the message
