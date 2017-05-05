@@ -1,3 +1,17 @@
+# MacOS Files
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+.AppleDouble
+**/.AppleDouble
+
+# Python Packages needed for this skill to work
+# httplib2  - Http Client library
+# Pytz      - For Timezone Management
+# Six       - Common Utilities for Python 2 + Python 3
+# Twilio    - Twilio package for sending and recieving SMS/MMS
 httplib2/**/*
 pytz/**/*
 pytz-2016.7.dist-info/**/*
